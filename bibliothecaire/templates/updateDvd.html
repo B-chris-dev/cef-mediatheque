@@ -1,0 +1,7 @@
+<p>Modifier {{dvd.name}} de {{dvd.director}}</p>
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ update_dvd }}
+<input type="submit" value="Envoyer">
+
+</form>

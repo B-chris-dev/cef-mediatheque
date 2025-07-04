@@ -1,0 +1,93 @@
+{% extends 'menuBibliotheque.html' %}
+{% block medialist %}
+
+<h2>liste des media</h2>
+
+
+<ul>
+    <li>
+        <ul>
+            <li><h3>DVD <a href="/adddvd"><input type="button" value="ajouter"></a></h3></li>
+
+            {% for dvd in dvds %}
+
+            <li>
+                <p>Nom : {{ dvd.name }}  ||  Réalisateur : {{ dvd.director }}</p>
+                <a href="/updatedvd/{{dvd.id}}">
+                    <input type="button" value="modifier">
+                </a>
+                 <a href="/delete/{{ media.id }}" >
+                    <input type="button" value="supprimer">
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+    </li>
+    <li>
+        <ul>
+            <li><h3>livres <a href="/addbook"><input type="button" value="ajouter"></a></h3></li>
+
+            {% for book in books %}
+
+            <li>
+                <p>Nom : {{ book.name }}  ||  Auteur : {{ book.author }}</p>
+                <a href="/updatebook/{{book.id}}">
+                    <input type="button" value="modifier">
+                </a>
+                <a href="/delete/{{book.id}}" >
+                    <input type="button" value="supprimer">
+                </a>
+                <a href="/createborrow/{{book.id}}">
+                    <input type="button" value="emprunter">
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+
+    </li>
+       <li>
+        <ul>
+            <li><h3>CD <a href="/addcd"><input type="button" value="ajouter"></a></h3></li>
+
+            {% for cd in cds %}
+
+            <li>
+                <p>Nom : {{ cd.name }}  ||  Artiste : {{ cd.artist }}</p>
+                <a href="/updatecd/{{cd.id}}">
+                    <input type="button" value="modifier">
+                </a>
+                 <a href="/delete/{{media.id}}" >
+                    <input type="button" value="supprimer">
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+
+    </li>
+    </li>
+       <li>
+        <ul>
+            <li><h3>Jeux de société <a href="/addbg"><input type="button" value="ajouter"></a></h3></li>
+
+            {% for bg in bgs %}
+
+            <li><p>Nom : {{ bg.name }}  ||  Créateur : {{ bg.creator }}</p>
+                <a href="/updatebg/{{ bg.id }}">
+                    <input type="button" value="modifier">
+                </a>
+                 <a href="/delete/{{media.id}}" >
+                    <input type="button" value="supprimer">
+                </a>
+            </li>
+
+            {% endfor %}
+        </ul>
+
+    </li>
+</ul>
+
+
+{% endblock %}

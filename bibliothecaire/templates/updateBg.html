@@ -1,0 +1,11 @@
+<p>Modifier {{bg.name}} de {{bg.creator}}</p>
+
+<form action="" method="post" novalidate>
+
+{% csrf_token %}
+
+{{ update_bg }}
+
+<input type="submit" value="Envoyer">
+
+</form>

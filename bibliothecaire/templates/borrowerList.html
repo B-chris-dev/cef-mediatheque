@@ -1,0 +1,21 @@
+<nav>
+    <a href="/">Retour page d'accueil</a>
+</nav>
+
+<h2>
+    liste des membres
+    <a href="/addborrower">
+        <input type="button" value="Ajouter un membre">
+    </a>
+</h2>
+
+<ul>
+    {% for borrower in borrowers %}
+    <li>Nom : {{ borrower.name}} || Id : {{ borrower.id }}
+    <a href="/delete/{{ borrower.id }}" >
+        <input type="button" value="supprimer">
+    </a>
+    </li>
+    {% endfor %}
+</ul>
+

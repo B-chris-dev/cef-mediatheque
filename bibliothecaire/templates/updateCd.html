@@ -1,0 +1,7 @@
+<p>Modifier {{cd.name}} de {{cd.artist}}</p>
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ update_cd }}
+<input type="submit" value="Envoyer">
+
+</form>

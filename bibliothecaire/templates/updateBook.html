@@ -1,0 +1,6 @@
+<p>Modifier {{book.name}} de {{book.author}}</p>
+<form action="" method="post" novalidate>
+{% csrf_token %}
+{{ update_book }}
+<input type="submit" value="Envoyer">
+</form>

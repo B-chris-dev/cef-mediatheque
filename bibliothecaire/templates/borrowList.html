@@ -1,0 +1,14 @@
+<nav>
+    <a href="/addborrower/">Retour page d'accueil</a>
+</nav>
+
+
+<h2>liste des emprunts</h2>
+
+<ul>
+    {% for borrow in borrows %}
+
+    <li>emprunteur : {{ borrow.borrower_id }} // id : {{ borrow.id }} // media : {{ borrow.media }}</li>
+
+    {% endfor %}
+</ul>

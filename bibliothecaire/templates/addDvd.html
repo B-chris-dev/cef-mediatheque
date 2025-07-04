@@ -1,0 +1,7 @@
+<h2>ajouter un DVD :</h2>
+
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ create_dvd }}
+    <input type="submit" value="envoyer">
+</form>
