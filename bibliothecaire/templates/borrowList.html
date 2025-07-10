@@ -1,5 +1,5 @@
 <nav>
-    <a href="/addborrower/">Retour page d'accueil</a>
+    <a href="/">Retour page d'accueil</a>
 </nav>
 
 
@@ -8,7 +8,10 @@
 <ul>
     {% for borrow in borrows %}
 
-    <li>emprunteur : {{ borrow.borrower_id }} // id : {{ borrow.id }} // media : {{ borrow.media }}</li>
+    <li>
+        id emprunt : {{ borrow.id }} // emprunteur : {{ borrow.borrower }} // media : {{ borrow.media }}
+        <a href="/deleteborrow/{{ borrow.id }}" ><input type="button" value="rendre"></a>
+    </li>
 
     {% endfor %}
 </ul>

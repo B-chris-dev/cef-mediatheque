@@ -13,7 +13,8 @@ class Media(models.Model):
     name = models.fields.CharField(max_length=150)
     available = models.fields.BooleanField(default=True)
 
-
+    def __str__(self):
+        return self.name
 
 class Book(Media):
     author = models.fields.CharField(max_length=150)

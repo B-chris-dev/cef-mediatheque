@@ -16,9 +16,21 @@
                 <a href="/updatedvd/{{dvd.id}}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/delete/{{ media.id }}" >
+                 <a href="/deletemedia/{{ media.id }}" >
                     <input type="button" value="supprimer">
                 </a>
+
+                {% if dvd.available == True %}
+
+               <a href="/createborrow/{{book.id}}">
+                    <input type="button" value="emprunter">
+                </a>
+
+                {% elif dvd.available == False %}
+
+                <p>|| non disponible à l'emprunt ! ||</p>
+
+                {% endif %}
             </li>
 
             {% endfor %}
@@ -31,16 +43,29 @@
             {% for book in books %}
 
             <li>
-                <p>Nom : {{ book.name }}  ||  Auteur : {{ book.author }}</p>
+                <p>Nom : {{ book.name }}  ||  Auteur : {{ book.author }} </p>
+
                 <a href="/updatebook/{{book.id}}">
                     <input type="button" value="modifier">
                 </a>
-                <a href="/delete/{{book.id}}" >
+                <a href="/deletemedia/{{book.id}}" >
                     <input type="button" value="supprimer">
                 </a>
-                <a href="/createborrow/{{book.id}}">
+
+                {% if book.available == True %}
+
+               <a href="/createborrow/{{book.id}}">
                     <input type="button" value="emprunter">
                 </a>
+
+                {% elif book.available == False %}
+
+                <p>|| non disponible à l'emprunt ! ||</p>
+
+                {% endif %}
+
+
+
             </li>
 
             {% endfor %}
@@ -58,9 +83,21 @@
                 <a href="/updatecd/{{cd.id}}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/delete/{{media.id}}" >
+                 <a href="/deletemedia/{{media.id}}" >
                     <input type="button" value="supprimer">
                 </a>
+
+                {% if cd.available == True %}
+
+               <a href="/createborrow/{{book.id}}">
+                    <input type="button" value="emprunter">
+                </a>
+
+                {% elif cd.available == False %}
+
+                <p>|| non disponible à l'emprunt ! ||</p>
+
+                {% endif %}
             </li>
 
             {% endfor %}
@@ -78,7 +115,7 @@
                 <a href="/updatebg/{{ bg.id }}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/delete/{{media.id}}" >
+                 <a href="/deletemedia/{{media.id}}" >
                     <input type="button" value="supprimer">
                 </a>
             </li>

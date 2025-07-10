@@ -12,7 +12,7 @@
 <ul>
     {% for borrower in borrowers %}
     <li>Nom : {{ borrower.name}} || Id : {{ borrower.id }}
-    <a href="/delete/{{ borrower.id }}" >
+    <a href="/deleteborrower/{{ borrower.id }}" >
         <input type="button" value="supprimer">
     </a>
     </li>
