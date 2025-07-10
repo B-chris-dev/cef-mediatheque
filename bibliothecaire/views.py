@@ -1,3 +1,5 @@
+from operator import truediv
+
 from django.shortcuts import render, redirect
 from bibliothecaire.models import Borrower, Book, Dvd, Cd, BoardGame, Media, Borrow
 from bibliothecaire.forms import CreateBorrower, CreateBook,CreateBorrow, CreateBg, UpdateBook,UpdateCd, UpdateBg,  CreateDvd, CreateCd, UpdateDvd
@@ -204,11 +206,20 @@ def delete_bg(request, id):
                   {'bgs': bgs})
 
 def delete_borrower(request, id):
-    borrower = Borrower.bojects.get(pk=id)
+    borrower = Borrower.objects.get(pk=id)
     borrower.delete()
     borrowers  = Borrower.objects.all()
     return render(request, 'borrowerList.html',
                   {'borrowers': borrowers})
+
+def delete_borrow(request, id):
+    borrow = Borrow.objects.get(pk=id)
+    media = borrow.media
+    media.available = True
+    media.save()
+    borrow.delete()
+    borrows = Borrow.objects.all()
+    return render(request, 'borrowList.html', {'borrows': borrows})
 
 def create_borrow(request, id):
     media = Media.objects.get(pk=id)
@@ -221,7 +232,7 @@ def create_borrow(request, id):
             media.available = False
             media.save()
             borrow.save()
-        return redirect("/")
+        return redirect("/borrowlist/")
     else:
         form = CreateBorrow()
     return render(request, 'createBorrow.html',

@@ -21,7 +21,7 @@ from django.contrib import admin
 from django.urls import path
 from bibliothecaire.views import add_borrower, update_book, update_bg, borrow_list, borrowers_list, media_list, add_book, add_dvd, \
     add_cd, \
-    add_bg, update_cd, update_dvd, delete_media, delete_borrower, create_borrow
+    add_bg, update_cd, update_dvd, delete_media, delete_borrower, create_borrow, delete_borrow
 urlpatterns = [
     path('', media_list),
     path('addborrower/', add_borrower),
@@ -36,7 +36,8 @@ urlpatterns = [
     path('updatedvd/<int:id>/', update_dvd),
     path('updatebg/<int:id>/', update_bg),
     path('updatecd/<int:id>/', update_cd),
-    path('delete/<int:id>', delete_media),
-    path('delete/<int:id>', delete_borrower),
+    path('deleteborrower/<int:id>', delete_borrower),
+    path('deletemedia/<int:id>', delete_media),
+    path('deleteborrow/<int:id>', delete_borrow),
     path('admin/', admin.site.urls),
 ]
