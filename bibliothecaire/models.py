@@ -5,6 +5,7 @@ from django.forms import NullBooleanField
 # Create your models here.
 class Borrower(models.Model):
     name = models.fields.CharField(max_length=150)
+    borrows = models.fields.DecimalField(max_digits=1, decimal_places=0, default='0')
 
     def __str__(self):
         return self.name
@@ -38,3 +39,4 @@ class Borrow(models.Model):
     borrower = models.ForeignKey(Borrower, on_delete=models.CASCADE)
     media = models.ForeignKey(Media, on_delete=models.CASCADE)
     created_at = models.fields.DateTimeField(auto_now_add=True)
+

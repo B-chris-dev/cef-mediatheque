@@ -215,14 +215,18 @@ def delete_borrower(request, id):
 def delete_borrow(request, id):
     borrow = Borrow.objects.get(pk=id)
     media = borrow.media
+    borrower = Borrower.objects.get(pk=borrow.borrower.id)
+    borrower.borrows = borrower.borrows - 1
     media.available = True
     media.save()
     borrow.delete()
+    borrower.save()
     borrows = Borrow.objects.all()
     return render(request, 'borrowList.html', {'borrows': borrows})
 
 def create_borrow(request, id):
     media = Media.objects.get(pk=id)
+
     if request.method == 'POST':
         form = CreateBorrow(request.POST)
         if form.is_valid():
@@ -230,6 +234,9 @@ def create_borrow(request, id):
             borrow.media = media
             borrow.borrower = form.cleaned_data['emprunteur']
             media.available = False
+            borrower = Borrower.objects.get(pk=borrow.borrower.id)
+            borrower.borrows = borrower.borrows + 1
+            borrower.save()
             media.save()
             borrow.save()
         return redirect("/borrowlist/")

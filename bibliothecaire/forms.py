@@ -37,4 +37,4 @@ class UpdateBg(forms.Form):
     createur = forms.CharField(required=True)
 
 class CreateBorrow(forms.Form):
-    emprunteur = forms.ModelChoiceField(queryset=Borrower.objects.all(), required=True)
+    emprunteur = forms.ModelChoiceField(queryset=Borrower.objects.filter(borrows__lte=2), required=True)
