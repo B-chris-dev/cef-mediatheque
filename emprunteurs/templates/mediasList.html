@@ -1,0 +1,45 @@
+<h2>liste des media</h2>
+<div>
+    <h3>DVD</h3>
+    <ul>
+        {% for dvd in dvds %}
+        <li>
+            <p>Nom : {{ dvd.name }} || Réalisateur : {{ dvd.director }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <h3>Livres</h3>
+    <ul>
+        {% for book in books %}
+        <li>
+            <p>Nom : {{ book.name }} || Auteur : {{ book.author }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div>
+    <h3>CD</h3>
+    <ul>
+        {% for cd in cds %}
+        <li>
+            <p>Nom : {{ cd.name }} || Artiste : {{ cd.artist }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+<div>
+    <h3>Jeux de société</h3>
+    <ul>
+        {% for bg in bgs %}
+        <li>
+            <p>Nom : {{ bg.name }} || Réalisateur : {{ bg.creator }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,130 +1,91 @@
 {% extends 'menuBibliotheque.html' %}
 {% block medialist %}
-
-<h2>liste des media</h2>
-
-
-<ul>
-    <li>
+<div>
+    <h2>liste des media</h2>
+    <div>
+        <h3>DVD <a href="/adddvd"><input type="button" value="ajouter"></a></h3>
         <ul>
-            <li><h3>DVD <a href="/adddvd"><input type="button" value="ajouter"></a></h3></li>
-
             {% for dvd in dvds %}
-
             <li>
                 <p>Nom : {{ dvd.name }}  ||  Réalisateur : {{ dvd.director }}</p>
                 <a href="/updatedvd/{{dvd.id}}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/deletemedia/{{ media.id }}" >
+                <a href="/deletemedia/{{ media.id }}" >
                     <input type="button" value="supprimer">
                 </a>
-
                 {% if dvd.available == True %}
-
-               <a href="/createborrow/{{dvd.id}}">
+                <a href="/createborrow/{{dvd.id}}">
                     <input type="button" value="emprunter">
                 </a>
-
                 {% elif dvd.available == False %}
-
                 <p>|| non disponible à l'emprunt ! ||</p>
-
                 {% endif %}
             </li>
-
             {% endfor %}
         </ul>
-    </li>
-    <li>
+    </div>
+    <div>
+        <h3>livres <a href="/addbook"><input type="button" value="ajouter"></a></h3>
         <ul>
-            <li><h3>livres <a href="/addbook"><input type="button" value="ajouter"></a></h3></li>
-
             {% for book in books %}
-
             <li>
                 <p>Nom : {{ book.name }}  ||  Auteur : {{ book.author }} </p>
-
                 <a href="/updatebook/{{book.id}}">
                     <input type="button" value="modifier">
                 </a>
                 <a href="/deletemedia/{{book.id}}" >
                     <input type="button" value="supprimer">
                 </a>
-
                 {% if book.available == True %}
-
-               <a href="/createborrow/{{book.id}}">
+                <a href="/createborrow/{{book.id}}">
                     <input type="button" value="emprunter">
                 </a>
-
                 {% elif book.available == False %}
-
                 <p>|| non disponible à l'emprunt ! ||</p>
-
                 {% endif %}
-
-
-
             </li>
-
             {% endfor %}
         </ul>
-
-    </li>
-       <li>
+    </div>
+    <div>
+        <h3>CD <a href="/addcd"><input type="button" value="ajouter"></a></h3>
         <ul>
-            <li><h3>CD <a href="/addcd"><input type="button" value="ajouter"></a></h3></li>
-
             {% for cd in cds %}
-
             <li>
                 <p>Nom : {{ cd.name }}  ||  Artiste : {{ cd.artist }}</p>
                 <a href="/updatecd/{{cd.id}}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/deletemedia/{{media.id}}" >
+                <a href="/deletemedia/{{media.id}}" >
                     <input type="button" value="supprimer">
                 </a>
-
                 {% if cd.available == True %}
-
-               <a href="/createborrow/{{cd.id}}">
+                <a href="/createborrow/{{cd.id}}">
                     <input type="button" value="emprunter">
                 </a>
-
                 {% elif cd.available == False %}
-
                 <p>|| non disponible à l'emprunt ! ||</p>
-
                 {% endif %}
             </li>
-
             {% endfor %}
         </ul>
-
-    </li>
-    </li>
-       <li>
+    </div>
+    <div>
+        <h3>Jeux de société <a href="/addbg"><input type="button" value="ajouter"></a></h3>
         <ul>
-            <li><h3>Jeux de société <a href="/addbg"><input type="button" value="ajouter"></a></h3></li>
-
             {% for bg in bgs %}
-
             <li><p>Nom : {{ bg.name }}  ||  Créateur : {{ bg.creator }}</p>
                 <a href="/updatebg/{{ bg.id }}">
                     <input type="button" value="modifier">
                 </a>
-                 <a href="/deletemedia/{{media.id}}" >
+                <a href="/deletemedia/{{media.id}}" >
                     <input type="button" value="supprimer">
                 </a>
             </li>
-
             {% endfor %}
         </ul>
-
-    </li>
-</ul>
-
-
+    </div>
+</div>
 {% endblock %}
+
