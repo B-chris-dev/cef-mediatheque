@@ -19,12 +19,13 @@ from django.urls import path
 
 from django.contrib import admin
 from django.urls import path
-
+from emprunteurs.views import medias_list
 from bibliothecaire.views import add_borrower, update_book, update_bg, borrow_list, borrowers_list, media_list, add_book, add_dvd, \
     add_cd, \
     add_bg, update_cd, update_dvd, delete_media, delete_borrower, create_borrow, delete_borrow
 urlpatterns = [
     path('', media_list),
+    path('mediaslist/', medias_list),
     path('addborrower/', add_borrower),
     path('borrowerslist/', borrowers_list),
     path('borrowlist/', borrow_list),
